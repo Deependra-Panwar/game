@@ -1,0 +1,90 @@
+<div class="container-fluid p-1">
+    <div class="container">
+        <div class="header text-white bg-success py-2">
+            <div class="row">
+                <div class="d-flex justify-content-between py-2 px-4 align-items-center">
+                    <div class="d-flex align-items-center gap-3">
+                        <div class="border border-white rounded-circle">
+                            <mat-icon  style="width:50px; height: 50px; font-size: 50px;">person</mat-icon>
+                        </div>
+                        <div>
+                            <span>User : 9183**941248</span><br>
+                            <span>ID :49387</span>
+                        </div>
+                    </div>
+                    <div>
+                        <mat-icon>notifications</mat-icon>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class=" d-flex py-2 justify-content-around text-center gap-2">
+                    <div class="balance">
+                        <mat-icon>&#8377;</mat-icon><span>0</span><br>
+                        <span>Balance</span><br>
+                        <button mat-raised-button color="primary">Recharge</button>
+                    </div>
+                    <div class="commission">
+                        <mat-icon>&#8377;</mat-icon><span>0</span><br>
+                        <span>Commission</span><br>
+                        <button mat-raised-button color="primary">See Commission</button>
+                    </div>
+                    <div class="interest">
+                        <mat-icon>&#8377;</mat-icon><span>0</span><br>
+                        <span>Interest</span><br>
+                        <button mat-raised-button color="primary">See Interest</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="menuItems">
+            <mat-list class="d-flex flex-column">
+                <mat-list-item routerLink="/profile" routerLinkActive="active-link">
+                   <mat-icon class="pt-1 mr-3">person</mat-icon><span>My Profile</span> 
+                </mat-list-item>
+                <mat-divider></mat-divider>
+                <mat-list-item>
+                    <mat-icon class="pt-1">person</mat-icon><span>sign in</span>
+                </mat-list-item>
+                <mat-divider></mat-divider>
+                <mat-list-item>
+                    <mat-icon class="pt-1">campaign</mat-icon><span>Promotion</span>
+                </mat-list-item>
+                <mat-divider></mat-divider>
+                <mat-accordion>
+                <mat-expansion-panel class="mat-elevation-z0" (opened)="panelOpenState = true"
+                (closed)="panelOpenState = false">
+                    <mat-expansion-panel-header>                    
+                        <mat-icon class="pt-1">account_balance_wallet</mat-icon><span>Wallet</span>
+                    </mat-expansion-panel-header>
+                        <mat-list-item routerLink="/wallet/balance">
+                            <mat-icon class="pt-1">account_balance_wallet</mat-icon><span>Balance</span>
+                        </mat-list-item>
+                        <mat-list-item routerLink="/wallet/withdrawal">
+                            <mat-icon class="pt-1">account_balance_wallet</mat-icon><span>Withdrwal</span>
+                        </mat-list-item>
+                        <mat-list-item routerLink="/wallet/transactionHistory">
+                            <mat-icon class="pt-1">account_balance_wallet</mat-icon><span>Transcations</span>
+                        </mat-list-item>
+                    </mat-expansion-panel>
+                    </mat-accordion>
+                <!-- <mat-list-item>
+                    <mat-icon class="pt-1">account_balance_wallet</mat-icon><span>wallet</span>
+                </mat-list-item> -->
+                <mat-divider></mat-divider>
+                <mat-list-item routerLink="/bank" routerLinkActive="active-link">
+                    <mat-icon class="pt-1">credit_card</mat-icon><span>Bank Card</span>
+                </mat-list-item>
+                <mat-divider></mat-divider>
+                <mat-list-item>
+                    <mat-icon class="pt-1">headset_mic</mat-icon><span>Complaints & suggestions</span>
+                </mat-list-item>
+                <mat-divider></mat-divider>
+                <mat-list-item>
+                    <mat-icon class="pt-1">person</mat-icon><span>About US</span>
+                </mat-list-item>
+                <mat-divider></mat-divider>
+              </mat-list>
+        </div>
+    </div>
+</div>

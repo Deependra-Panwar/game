@@ -1,0 +1,14 @@
+<div class="balance-container">
+    <div class="d-flex justify-content-between align-items-center">
+        <h2>Your Balance</h2>
+        <div>
+            <button routerLink="/wallet/deposit" mat-raised-button color="primary">Recharge</button>    
+        </div>
+    </div>
+    
+    <mat-card class="balance-card">
+      <mat-card-content>
+        <p>Your current balance is: {{ balance | currency }}</p>
+      </mat-card-content>
+    </mat-card>
+  </div>

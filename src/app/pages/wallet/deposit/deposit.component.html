@@ -1,0 +1,13 @@
+<div class="deposit-container">
+    <h2>Deposit Funds</h2>
+    <form [formGroup]="depositForm" (ngSubmit)="submit()">
+      <mat-form-field appearance="fill">
+        <mat-label>Amount to Deposit</mat-label>
+        <input matInput formControlName="amount" type="number">
+        <mat-error *ngIf="depositForm.get('amount').invalid && depositForm.get('amount').touched">
+          Please enter a valid amount
+        </mat-error>
+      </mat-form-field>
+      <button mat-raised-button color="primary" type="submit" [disabled]="depositForm.invalid">Deposit</button>
+    </form>
+  </div>

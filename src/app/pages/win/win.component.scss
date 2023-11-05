@@ -1,0 +1,52 @@
+.diagonal-button-blueGreen {
+    background: linear-gradient(45deg, #28a745, #007bff);
+    color: white;
+    font-size: 16px;
+  }
+  .diagonal-button-blueRed {
+    background: linear-gradient(45deg, #dc3545, #007bff);
+    color: white;
+    font-size: 16px;
+  }
+
+  table {
+    width: 100%;
+  }
+  .bg-matPrimary{
+    background-color:#3f51b5;  
+  }
+  .bg-voliet{
+    color:#7F00FF;
+  }
+
+  .clock-container {
+    text-align: center;
+    position: relative; /* Ensure positioning context for the overlay */
+  }
+  
+  h1 {
+    font-size: 36px;
+    margin-bottom: 10px;
+  }
+  
+  // .overlay {
+  //   position: absolute; /* Position the overlay relative to the container */
+  //   top: 0;
+  //   left: 0;
+  //   width: 100%;
+  //   height: 100%;
+  //   background-color: rgba(68, 68, 68, 0.5); /* Red overlay with 50% opacity */
+  //   display: flex;
+  //   justify-content: center;
+  //   align-items: center;
+  //   font-size: 24px;
+  //   color: rgba(68, 68, 68, 0.5);
+  //   z-index: 1; /* Ensure it's on top of the countdown timer content */
+  //   pointer-events: all; /* This line prevents interaction with underlying elements */
+  // }
+  
+  
+  
+  
+  
+  

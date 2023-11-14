@@ -40,16 +40,16 @@ export class WinComponent implements OnInit{
   selectedButtonId: number | null = null;
   gameId:String;
   oldGameId:String;
-  getWinner:number=1;
+  getWinner:number = 1;
 
   ngOnInit(): void {
     this.countdownService.getLast30SecondsObservable().subscribe(isLast30Seconds => {
       this.last30Seconds = isLast30Seconds;
 
-      if(this.last30Seconds && this.getWinner ===1){
-        this.GameService.getParticipantUserData(this.gameId).subscribe((res)=>{
+      if(this.last30Seconds && this.getWinner === 1){
+        this.getWinner = 2
+        this.GameService.getParticipantUserData(this.gameId).subscribe((res)=> {
           console.log('res',res)
-          this.getWinner=2
         })
       }
     });
@@ -57,7 +57,7 @@ export class WinComponent implements OnInit{
       this.gameId = gameId;
       if(this.oldGameId !== this.gameId){
         this.makeButtonDisabled = false;
-        this.oldGameId =this.gameId;
+        this.oldGameId =this.gameId;  
       }
     });
   }
@@ -77,7 +77,7 @@ openPopup(id: number) {
     if(result !== null){
       const participantuser ={
         gameId:this.gameId,
-        username:'Deep@139',
+        username:'Deep@122',
         amountput: result.ammount,
         selection: result.selectNumber
       }

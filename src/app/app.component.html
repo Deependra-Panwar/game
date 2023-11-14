@@ -1,3 +1,9 @@
+<div *ngIf="shouldShowComponent">
 <app-loader *ngIf="loadingService.isLoading"></app-loader>
 <router-outlet></router-outlet>
 <app-header></app-header>
+</div>
+<div *ngIf="!shouldShowComponent"> 
+<app-admin-header (toggleSidenav)="sidenav.isSidenavOpened = !sidenav.isSidenavOpened">  </app-admin-header>
+<app-sidebar  #sidenav [isSidenavOpened]="false"></app-sidebar>
+</div>

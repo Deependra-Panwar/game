@@ -22,6 +22,9 @@ import {MatTableModule} from '@angular/material/table';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatExpansionModule} from '@angular/material/expansion';
 import {MatListModule} from '@angular/material/list';
+import {MatSidenavModule} from '@angular/material/sidenav';
+import {MatSortModule} from '@angular/material/sort';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { HeaderComponent } from './shared/header/header.component';
 import { MineComponent } from './pages/mine/mine.component';
 import { provideHttpClient, HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
@@ -41,6 +44,13 @@ import { DepositComponent } from './pages/wallet/deposit/deposit.component';
 import { WithdrawalComponent } from './pages/wallet/withdrawal/withdrawal.component';
 import { TransactionHistoryComponent } from './pages/wallet/transaction-history/transaction-history.component';
 import { ComplaintComponent } from './complaint/complaint.component';
+import { AdminHeaderComponent } from './admin/shared/admin-header/admin-header.component';
+import { DashboardComponent } from './admin/dashboard/dashboard.component';
+import { SidebarComponent } from './admin/shared/sidebar/sidebar.component';
+import { GameComponent } from './admin/game/game.component';
+import { UserComponent } from './admin/user/user.component';
+import { AdminDialogComponent } from './admin/shared/admin-dialog/admin-dialog.component';
+import { AdminParticipantListComponent } from './admin/admin-participant-list/admin-participant-list.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -62,6 +72,13 @@ import { ComplaintComponent } from './complaint/complaint.component';
     WithdrawalComponent,
     TransactionHistoryComponent,
     ComplaintComponent,
+    AdminHeaderComponent,
+    DashboardComponent,
+    SidebarComponent,
+    GameComponent,
+    UserComponent,
+    AdminDialogComponent,
+    AdminParticipantListComponent,
   ],
   imports: [
     BrowserModule,
@@ -83,6 +100,9 @@ import { ComplaintComponent } from './complaint/complaint.component';
     MatDividerModule,
     MatListModule,
     MatExpansionModule,
+    MatSidenavModule,
+    MatSortModule,
+    MatSnackBarModule,
     ToastrModule.forRoot()
   ],
   providers: [

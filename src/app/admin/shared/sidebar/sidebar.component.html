@@ -1,0 +1,25 @@
+<mat-sidenav-container>
+  <mat-sidenav [opened]="isSidenavOpened"  mode="side">
+    <mat-list>
+     <a routerLink="/admin/dashboard" routerLinkActive="active-link">Dashboard<mat-icon>dashboard</mat-icon></a>
+      <mat-divider></mat-divider>
+      <a routerLink="/admin/participantlist" routerLinkActive="active-link">Participants List <mat-icon>play_circle</mat-icon></a>
+      <mat-divider ></mat-divider>
+      <a routerLink="/admin/user" routerLinkActive="active-link">User <mat-icon>person</mat-icon></a>
+      <mat-divider></mat-divider>
+      <a routerLink="/admin/game" routerLinkActive="active-link">Game<mat-icon>games</mat-icon></a>
+      <mat-divider></mat-divider>
+    </mat-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+
+<!-- <mat-drawer-container class="example-container" >
+    <mat-drawer [opened]="isSidenavOpened" class="example-sidenav" mode="side">
+      
+    </mat-drawer>
+  
+  </mat-drawer-container>
+   -->

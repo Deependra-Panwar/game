@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { gameService } from 'src/app/services/game.service';
 
 @Component({
   selector: 'app-profile',
@@ -9,24 +10,25 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class ProfileComponent {
   profileForm: FormGroup;
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private GameSerive :gameService) {
     this.profileForm = this.fb.group({
       name: ['', Validators.required],
-      mobilenumber: ['', Validators.required],
-      email: ['', [Validators.required, Validators.email]],
-      username: [{ value: 'your_username', disabled: true }],
       password: ['', Validators.required]
     });
+    this.getUser()
   }
 
-  ngOnInit() {}
-
+  getUser(){
+    this.GameSerive.getUserByemail('panward81@gmail.com').subscribe((user)=>  {
+     console.log(user)
+    })
+  }
   submitForm() {
     if (this.profileForm.valid) {
-      // You can send the form data to your backend or perform other actions here
-      // For example, you can access form values like this:
       const formData = this.profileForm.value;
       console.log(formData);
     }
   }
+
+
 }

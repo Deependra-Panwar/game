@@ -9,6 +9,7 @@ import { NavigationEnd, Router } from '@angular/router';
 export class AppComponent {
   title = 'game';
   shouldShowComponent: boolean = true;
+  showHeader: boolean = true;
 
   constructor(public loadingService: LoadingService,private router: Router ) {
   
@@ -19,6 +20,7 @@ export class AppComponent {
   
         // Check if the URL contains 'admin'
         this.shouldShowComponent = !url.includes('admin');
+        this.showHeader = !(url.includes('login' )|| url.includes('register' ) || url.includes('forget-password') || url.includes('set-password'));
       }
     });
   

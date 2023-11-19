@@ -20,15 +20,13 @@ export class WithdrawalComponent {
     if (this.withdrawForm.valid) {
       const amount = this.withdrawForm.value.amount;
 
-      this.walletService.withdrawal(amount).subscribe(
-        () => {
-          // Withdrawal successful, you can show a success message or redirect the user
-          console.log('Withdrawal successful');
-        },
-        (error: any) => {
-          console.error('Error withdrawing funds', error);
-          // Handle error, show error message, etc.
-        }
+      const data ={
+        amount:this.withdrawForm.value.amount,
+        email:'panward81@gmail.com',
+      }             
+      this.walletService.withdrawal(data).subscribe(((user)=>{
+         console.log('Deposit successful');
+      })
       );
     }
   }

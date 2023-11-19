@@ -8,22 +8,23 @@ import { walletService } from 'src/app/services/wallet.service';
 })
 export class TransactionHistoryComponent {
   transactions: any[] = [];
-
-  constructor(private walletService: walletService) {}
-
-  ngOnInit(): void {
+  constructor(private walletService: walletService) {
     this.fetchTransactionHistory();
   }
-
   fetchTransactionHistory() {
-    this.walletService.getTransactions().subscribe(
-      (data: any) => {
-        this.transactions = data.transactions;
-      },
-      (error: any) => {
-        console.error('Error fetching transaction history', error);
-        // Handle error, show error message, etc.
-      }
-    );
+    const data ={
+      email:'panward81@gmail.com'
+    }
+    this.walletService.getTransactions(data).subscribe((res:any)=>{
+        if(res){
+          const transactionArrays = res.data.balance;
+          this.transactions =transactionArrays.flat()
+
+        }
+               console.log(this.transactions)  
+    });
+  }
+  ngOnInit(): void {
+    this.fetchTransactionHistory();
   }
 }

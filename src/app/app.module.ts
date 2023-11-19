@@ -51,6 +51,7 @@ import { GameComponent } from './admin/game/game.component';
 import { UserComponent } from './admin/user/user.component';
 import { AdminDialogComponent } from './admin/shared/admin-dialog/admin-dialog.component';
 import { AdminParticipantListComponent } from './admin/admin-participant-list/admin-participant-list.component';
+import { RequestApprovalComponent } from './admin/wallet/request-approval/request-approval.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -79,6 +80,7 @@ import { AdminParticipantListComponent } from './admin/admin-participant-list/ad
     UserComponent,
     AdminDialogComponent,
     AdminParticipantListComponent,
+    RequestApprovalComponent,
   ],
   imports: [
     BrowserModule,

@@ -7,8 +7,9 @@
     </div>
     
     <mat-card class="balance-card">
-      <mat-card-content>
-        <p>Your current balance is: {{ balance | currency }}</p>
+      <mat-card-content class="d-flex align-items-center justify-content-between">
+        <span class="fs-6">Your current balance</span>
+        <span class="fs-3"><mat-icon class="fw-bolder">&#8377;</mat-icon>{{ balance }}</span>
       </mat-card-content>
     </mat-card>
   </div>

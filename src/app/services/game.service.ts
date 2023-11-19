@@ -19,6 +19,14 @@ participantuserService(participantuserObj:any){
 getParticipantUserData(gameId: String){
   return this.http.get(`${participantsUserApiUrls.gameServiceApi}getParticipantUser/${gameId}`);
 } 
+//get ganeResult
+getGameResult(){
+  return this.http.get(`${participantsUserApiUrls.gameServiceApi}getGameResult`);
+}
+//get user by email
+getUserByemail(email:string){
+  return this.http.get(`${participantsUserApiUrls.gameServiceApi}getUserByemail/${email}`);
+}
 
 //admin - password
 
@@ -29,5 +37,6 @@ adminGetAllParticipantList(){
 adminGetAllGameWinnerList(){
   return this.http.get(`${adminApiUrls.adminServiceApi}getAllGameWinnerList`);
 }
+
 }
  

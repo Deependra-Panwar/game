@@ -23,30 +23,36 @@
                                     <mat-error *ngIf="registrationForm.get('mobileNumber').hasError('required')">Enter mobile Number</mat-error>
                                     <mat-error *ngIf="registrationForm.get('mobileNumber').hasError('pattern')">Invalid mobile number format.</mat-error>
                                 </mat-form-field>
-                                <mat-form-field class="w-100 mb-3" appearance="outline">
-                                    <mat-label class="bold">Email Address</mat-label>
-                                    <mat-icon matPrefix>mail_outline</mat-icon>
-                                    <input matInput placeholder="Enter Email Address" formControlName="email">
-                                    <mat-error *ngIf="registrationForm.get('email').hasError('required')">Enter Your Email</mat-error>
-                                    <mat-error *ngIf="registrationForm.get('email').hasError('email')">Invalid email format.</mat-error>
-                                </mat-form-field>
-                                <!-- <div class="d-flex gap-2">
+                                <div class="d-flex gap-2">
+                                    <mat-form-field class="w-100 mb-3" appearance="outline">
+                                        <mat-label class="bold">Email Address</mat-label>
+                                        <mat-icon matPrefix>mail_outline</mat-icon>
+                                        <input matInput placeholder="Enter Email Address" formControlName="email" [readonly]="isFieldDisabled">
+                                        <mat-error *ngIf="registrationForm.get('email').hasError('required')">Enter Your Email</mat-error>
+                                        <mat-error *ngIf="registrationForm.get('email').hasError('email')">Invalid email format.</mat-error>
+                                    </mat-form-field>
+                                    <div class=" d-flex mt-1" *ngIf="!isEmailFieldNotEmpty()">
+                                        <button class="py-4 text-muted" mat-raised-button [disabled]="isEmailFieldNotEmpty() || isFieldDisabled" (click)="sendRegisterEmail()">Send Email</button>
+                                    </div>
+                                </div>
+                                
+                                <div class="d-flex gap-2" *ngIf="isvisible">
                                     <mat-form-field class="w-100"  appearance="outline">
                                         <mat-label class="bold">Verfication Code</mat-label>
                                         <mat-icon matPrefix>message_outline</mat-icon>
-                                        <input matInput placeholder="Enter OTP">
+                                        <input matInput placeholder="Enter OTP" formControlName ="verifyEmail" [readonly]="isverifyFieldDisabled"> 
                                     </mat-form-field>
                                     <div class=" d-flex mt-1">
-                                        <button class="py-4 text-muted" mat-raised-button>OTP</button>
+                                        <button class="py-4 text-muted" mat-raised-button (click)="verifyRegisterEmail()" [disabled]="isverifyFieldDisabled">Verify Code </button>
                                     </div>
-                                </div> -->
-                                <mat-form-field class="w-100 mb-3"  appearance="outline">
+                                </div>
+                                <!-- <mat-form-field class="w-100 mb-3"  appearance="outline">
                                     <mat-label>Username</mat-label>
                                     <mat-icon matPrefix>account_circle</mat-icon>
                                     <input matInput placeholder="Enter your password" formControlName="username">
                                     <mat-error *ngIf="registrationForm.get('username').hasError('required')">Enter Username</mat-error>
                                     <mat-error *ngIf="registrationForm.get('username').hasError('minlength')">Username must be at least 6 characters long.</mat-error>
-                                </mat-form-field>
+                                </mat-form-field> -->
                                 <mat-form-field class="w-100 mb-3"  appearance="outline">
                                     <mat-label>Password</mat-label>
                                     <mat-icon matPrefix>vpn_key</mat-icon>
@@ -65,7 +71,7 @@
                                 </div>
                             </form>    
                             <div>
-                                <button mat-raised-button class="w-100  text-white p-2" color="primary" [disabled]="!registrationForm.valid" (click)="onSubmit(registrationForm)">Register</button>
+                                <button mat-raised-button class="w-100  text-white p-2" color="primary" [disabled]="!registrationForm.valid || !allowRegister" (click)="onSubmit(registrationForm)">Register</button>
                             </div>
                         </div>
                     </div>

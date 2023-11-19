@@ -39,30 +39,26 @@
                             <div class="text-muted h5"><span>UPDATE PROFILE</span></div>
                         </div>
                         <div class="w-100">
-                            <form [formGroup]="profileForm" (ngSubmit)="submitForm()">
+                            <form [formGroup]="profileForm">
                                 <mat-form-field class="w-100">
                                   <input matInput formControlName="name" placeholder="Name">
                                 </mat-form-field>
                           
                                 <mat-form-field class="w-100 ">
-                                  <input matInput formControlName="mobilenumber" placeholder="Mobile Number">
+                                  <input matInput placeholder="Mobile Number" [disabled]="true">
                                 </mat-form-field>
                           
                                 <mat-form-field class="w-100">
-                                  <input matInput formControlName="email" placeholder="Email">
+                                  <input matInput  placeholder="Email" [disabled]="true">
                                 </mat-form-field>
-                          
-                                <mat-form-field class="w-100">
-                                  <input matInput formControlName="username" placeholder="Username" [readonly]="true">
-                                </mat-form-field>
-                                
+                            
                                 <mat-form-field class="w-100">
                                   <input matInput type="password" formControlName="password" placeholder="Password">
                                   <mat-error *ngIf="profileForm.get('password').hasError('required')">Enter password</mat-error>
                                 </mat-form-field>
                                 
                                 <div class="d-flex justify-content-center">
-                                    <button mat-raised-button color="primary" type="submit">Submit</button>
+                                    <button mat-raised-button color="primary" (click)="submitForm()">Submit</button>
                                 </div>
                               </form>
                         </div>

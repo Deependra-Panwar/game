@@ -29,7 +29,7 @@ export class GameComponent implements OnInit {
   constructor( private GameService: gameService){
    
     this.GameService.adminGetAllGameWinnerList().subscribe((res:any)=>{
-      
+      console.log(res.data)
       this.posts= res.data
       this.dataSource = new MatTableDataSource(this.posts);
       this.dataSource.paginator = this.paginator;

@@ -17,6 +17,7 @@ import { DashboardComponent } from './admin/dashboard/dashboard.component';
 import { GameComponent } from './admin/game/game.component';
 import { UserComponent } from './admin/user/user.component';
 import { AdminParticipantListComponent } from './admin/admin-participant-list/admin-participant-list.component';
+import { RequestApprovalComponent } from './admin/wallet/request-approval/request-approval.component';
 
 const routes: Routes = [
   {path:'', component:LoginComponent},
@@ -38,6 +39,7 @@ const routes: Routes = [
   {path: 'admin/game',component:GameComponent},
   {path: 'admin/user',component:UserComponent},
   {path: 'admin/participantlist',component:AdminParticipantListComponent},
+  {path:'admin/wallet', component:RequestApprovalComponent},
 
 ];
 

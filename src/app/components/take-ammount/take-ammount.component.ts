@@ -11,8 +11,11 @@ export class TakeAmmountComponent {
   enteredAmount: number = 10; // Set the default value to 10
   islast30seconds:boolean;
   selectNumber:number
+  balance:any;
+  displayMsg:boolean= false;
   constructor(private dialogRef: MatDialogRef<TakeAmmountComponent>, private countdownService: CountdownService, @Inject(MAT_DIALOG_DATA) data: any) {
     this.selectNumber= data.id
+    this.balance=data.balance
   //  this.islast30seconds = countdownService.isLast30Seconds();
   
     setInterval(() => {
@@ -43,7 +46,12 @@ export class TakeAmmountComponent {
       selectNumber:this.selectNumber,
       ammount:this.enteredAmount
     }
-    this.dialogRef.close(Selectresult);
+    if(this.enteredAmount < this.balance){
+      this.dialogRef.close(Selectresult);
+    }else{
+      this.displayMsg =true
+    }
+    
   }
 
   closePopup() {

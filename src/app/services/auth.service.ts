@@ -20,5 +20,11 @@ export class AuthService {
   resetPasswordService(resetObj:any){
     return this.http.post<any>(`${apiUrls.authServiceApi}reset-password`,resetObj);
   }
- 
+  sendRegistrationEmailservice(email:string){
+    return this.http.post<any>(`${apiUrls.authServiceApi}sendEmail`,{email:email});
+  }
+  verifyRegistrationEmailservice(data:any){
+    console.log(data)
+    return this.http.post<any>(`${apiUrls.authServiceApi}VerifyEmail`,data);
+  }
 }

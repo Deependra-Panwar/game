@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable, inject } from '@angular/core';
-import { participantsUserApiUrls } from '../api.urls';
+import { participantsUserApiUrls, adminApiUrls } from '../api.urls';
 
 @Injectable({
   providedIn: 'root'
@@ -11,11 +11,32 @@ import { participantsUserApiUrls } from '../api.urls';
 //win component service
 participantuserService(participantuserObj:any){
     return this.http.post<any>(`${participantsUserApiUrls.gameServiceApi}participantUser`,participantuserObj);
-  } 
+} 
 
-//get all the user partcipantuser
+
+
+//get all partcipantuser by id
 getParticipantUserData(gameId: String){
   return this.http.get(`${participantsUserApiUrls.gameServiceApi}getParticipantUser/${gameId}`);
 } 
+//get ganeResult
+getGameResult(){
+  return this.http.get(`${participantsUserApiUrls.gameServiceApi}getGameResult`);
+}
+//get user by email
+getUserByemail(email:string){
+  return this.http.get(`${participantsUserApiUrls.gameServiceApi}getUserByemail/${email}`);
+}
+
+//admin - password
+
+//get all participantUser
+adminGetAllParticipantList(){
+  return this.http.get(`${adminApiUrls.adminServiceApi}getAllParticipantList`);
+}
+adminGetAllGameWinnerList(){
+  return this.http.get(`${adminApiUrls.adminServiceApi}getAllGameWinnerList`);
+}
+
 }
  

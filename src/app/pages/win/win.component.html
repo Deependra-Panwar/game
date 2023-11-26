@@ -8,11 +8,11 @@
             <div class="py-2 text-white fs-5">
                 <span>Available Balance: </span>
                 <mat-icon>&#8377;</mat-icon>
-                <span>0.0</span>
+                <span>{{balance}}</span>
             </div>
             <div class="d-flex justify-content-between py-2">
                 <div class="d-flex gap-2">
-                    <button mat-raised-button color="primary"> Recharge</button>
+                    <button mat-raised-button color="primary" routerLink="/wallet/deposit"> Recharge</button>
                     <button mat-stroked-button class="text-white"> Trend</button>
                 </div>
                 <div class="text-white">
@@ -76,40 +76,45 @@
                 <mat-icon>emoji_events</mat-icon>
                 <span>Parity Record</span>
             </div>
-            <div class="py-3">
-                <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
-
-                    <!--- Note that these columns can be defined in any order.
-                          The actual rendered columns are set as a property on the row definition" -->
-                  
-                    <!-- Position Column -->
-                    <ng-container matColumnDef="position">
-                      <th mat-header-cell *matHeaderCellDef> No. </th>
-                      <td mat-cell *matCellDef="let element"> {{element.position}} </td>
-                    </ng-container>
-                  
-                    <!-- Name Column -->
-                    <ng-container matColumnDef="name">
-                      <th mat-header-cell *matHeaderCellDef> Name </th>
-                      <td mat-cell *matCellDef="let element"> {{element.name}} </td>
-                    </ng-container>
-                  
-                    <!-- Weight Column -->
-                    <ng-container matColumnDef="weight">
-                      <th mat-header-cell *matHeaderCellDef> Weight </th>
-                      <td mat-cell *matCellDef="let element"> {{element.weight}} </td>
-                    </ng-container>
-                  
-                    <!-- Symbol Column -->
-                    <ng-container matColumnDef="symbol">
-                      <th mat-header-cell *matHeaderCellDef> Symbol </th>
-                      <td mat-cell *matCellDef="let element"> {{element.symbol}} </td>
-                    </ng-container>
-                  
-                    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-                    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-                </table>    
-            </div>
+            <div class="mat-elevation-z8 py-3">
+                <table mat-table [dataSource]="dataSource" matSort>
+              
+                  <!-- ID Column -->
+                  <ng-container matColumnDef="gameId">
+                    <th mat-header-cell *matHeaderCellDef> Period </th>
+                    <td mat-cell *matCellDef="let row"> {{row.gameId}} </td>
+                  </ng-container>
+              
+                  <!-- Progress Column -->
+                  <ng-container matColumnDef="priceGiven">
+                    <th mat-header-cell *matHeaderCellDef> Price Given </th>
+                    <td mat-cell *matCellDef="let row"> {{row.priceGiven}} </td>
+                  </ng-container>
+              
+                  <!-- Name Column -->
+                  <ng-container matColumnDef="colorWin">
+                    <th mat-header-cell *matHeaderCellDef> Color win </th>
+                    <td mat-cell *matCellDef="let row"> 
+                        <div *ngIf="row.colorWin === '0'">
+                            <mat-icon color="green">fiber_manual_record</mat-icon>
+                            <mat-icon color="primary">fiber_manual_record</mat-icon>
+                        </div>
+                        <div *ngIf="row.colorWin === '5'">
+                            <mat-icon color="warn">fiber_manual_record</mat-icon>
+                            <mat-icon color="primary">fiber_manual_record</mat-icon>
+                        </div>
+                        <div *ngIf="row.colorWin !== '0' && row.colorWin !== '5' ">
+                            <mat-icon [color]="row.color">fiber_manual_record</mat-icon>
+                        </div>
+                     </td>
+                  </ng-container>
+              
+                  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                </table>
+              
+                <mat-paginator [pageSizeOptions]="[ 5, 10, 25, 100]" aria-label="Select page of users"></mat-paginator>
+              </div>
         </div>
         <!-- Periods Table End -->
     </div>

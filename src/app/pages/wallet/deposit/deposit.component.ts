@@ -16,17 +16,15 @@ export class DepositComponent {
   }
   submit() {
     if (this.depositForm.valid) {
-      const amount = this.depositForm.value.amount;
-
-      this.walletService.deposit(amount).subscribe(
-        () => {
-          // Deposit successful, you can show a success message or redirect the user
-          console.log('Deposit successful');
-        },
-        (error: any) => {
-          console.error('Error depositing funds', error);
-          // Handle error, show error message, etc.
-        }
+      const data ={
+        amount:this.depositForm.value.amount,
+        email:'panward81@gmail.com',
+      }             
+      this.walletService.deposit(data).subscribe(((res)=>{
+          if(res){
+            this.depositForm.reset()
+          }
+      })
       );
     }
   }

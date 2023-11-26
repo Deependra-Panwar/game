@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable, inject } from '@angular/core';
-import { walletApiUrls } from '../api.urls';
+import { adminApiUrls, walletApiUrls } from '../api.urls';
 
 @Injectable({
   providedIn: 'root'
@@ -9,17 +9,31 @@ import { walletApiUrls } from '../api.urls';
     http =inject(HttpClient)
 
 //win component service
-getBalance(){
-    return this.http.get(`${walletApiUrls.gameServiceApi}/balance`);
+getBalance(data:any){
+    return this.http.post(`${walletApiUrls.gameServiceApi}balance`,data);
   }
-  deposit(amount){
-    return this.http.post<any>(`${walletApiUrls.gameServiceApi}/deposit`,amount);
+  deposit(data:any){
+    return this.http.post<any>(`${walletApiUrls.gameServiceApi}deposit`,data);
   } 
-  withdrawal(amount){
-    return this.http.post<any>(`${walletApiUrls.gameServiceApi}/withdrwal`,amount);
+  withdrawal(data:any){
+    return this.http.post<any>(`${walletApiUrls.gameServiceApi}withdrawal`,data);
   }
-  getTransactions() {
-    return this.http.get(`${walletApiUrls.gameServiceApi}/transactions`);
+  getTransactions(data:any) {
+    return this.http.post(`${walletApiUrls.gameServiceApi}transactions`,data);
   }
+  deduction(data:any){
+    return this.http.post(`${walletApiUrls.gameServiceApi}deduction`,data);
+  }
+
+
+  //admin
+  adminGetAllWalletList(){
+    return this.http.get(`${adminApiUrls.adminServiceApi}getAllWalletList`)
+  }
+  adminApproveDeposit(data:any){
+    return this.http.post(`${adminApiUrls.adminServiceApi}approveDeposit`,data)
+  }
+
+  
 }
  

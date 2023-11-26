@@ -1,0 +1,13 @@
+<!-- admin-dialog.component.html -->
+<h2 mat-dialog-title>{{ data.title }}</h2>
+<mat-dialog-content *ngIf="data.type === 'form'">
+  <!-- Your form content here -->
+  <!-- You can use Angular Reactive Forms for the update form -->
+</mat-dialog-content>
+<mat-dialog-content *ngIf="data.type === 'confirmation'">
+  {{ data.message }}{{data.username}}
+</mat-dialog-content>
+<mat-dialog-actions class="d-flex justify-content-end">
+  <button mat-raised-button *ngIf="data.showConfirm" (click)="onConfirm()">{{ data.confirmText }}</button>
+  <button mat-raised-button color="warn" (click)="onCancel()">{{ data.cancelText }}</button>
+</mat-dialog-actions>

@@ -27,4 +27,7 @@ export class AuthService {
     console.log(data)
     return this.http.post<any>(`${apiUrls.authServiceApi}VerifyEmail`,data);
   }
+  isLoggedIn(){
+    return !!localStorage.getItem("user_id");
+}
 }

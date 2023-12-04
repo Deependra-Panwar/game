@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
 import { ToastrService } from 'ngx-toastr';
 import { customEmailValidator } from 'src/app/validator/email-validtor';
+import { MatSnackBar } from '@angular/material/snack-bar';
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
@@ -15,7 +16,7 @@ export class RegisterComponent implements OnInit {
   isFieldDisabled:boolean = false;
   isverifyFieldDisabled:boolean = false;
   allowRegister: boolean = false;
-  constructor(private fb: FormBuilder, private authService: AuthService, private router:Router, private toastr : ToastrService) {}
+  constructor(private fb: FormBuilder, private authService: AuthService, private router:Router, private snackBar: MatSnackBar) {}
 
   ngOnInit(): void {
    this.registrationForm = this.fb.group({
@@ -69,7 +70,7 @@ export class RegisterComponent implements OnInit {
   onSubmit(registrationForm) {
     this.authService.registerService(registrationForm.value).subscribe({
       next:(res)=>{
-        alert(res.message);
+       this.openSnackBar(res.message,'ohk')
         this.registrationForm.reset();
         this.router.navigate(['login']);
       },
@@ -78,5 +79,11 @@ export class RegisterComponent implements OnInit {
       }
     }) 
     console.log(registrationForm.value);
+  }
+
+  openSnackBar(message: string, action: string) {
+    this.snackBar.open(message, action, {
+      duration: 2000, // Set the duration for how long the snackbar will be displayed (in milliseconds)
+    });
   }
 }

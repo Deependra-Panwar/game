@@ -13,10 +13,12 @@ export class TakeAmmountComponent {
   selectNumber:number
   balance:any;
   displayMsg:boolean= false;
+  width:string
   constructor(private dialogRef: MatDialogRef<TakeAmmountComponent>, private countdownService: CountdownService, @Inject(MAT_DIALOG_DATA) data: any) {
     this.selectNumber= data.id
     this.balance=data.balance
   //  this.islast30seconds = countdownService.isLast30Seconds();
+    this.width= data.width
   
     setInterval(() => {
       this.islast30seconds = countdownService.isLast30Seconds();

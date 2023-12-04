@@ -48,31 +48,30 @@
         <!-- count down and Periods End -->
         <!-- Button Start -->
         <div class="row bg-white" >
-            <div class="d-flex py-3 bg-white justify-content-around">
-                <button mat-raised-button [ngClass]="{'bg-success text-white':!last30Seconds && !makeButtonDisabled}" [disabled]="last30Seconds || makeButtonDisabled" (click)="openPopup(10)">JOIN GREEN</button>
-                <button mat-raised-button [ngClass]="{'bg-primary text-white':!last30Seconds && !makeButtonDisabled}" [disabled]="last30Seconds || makeButtonDisabled" (click)="openPopup(11)">JOIN BLUE</button>
-                <button mat-raised-button [ngClass]="{'bg-danger text-white':!last30Seconds && !makeButtonDisabled}" [disabled]="last30Seconds || makeButtonDisabled" (click)="openPopup(12)">JOIN RED</button>
+            <div class="d-flex py-3 bg-white justify-content-around gap-3">
+                <button mat-raised-button class="w-100" [ngClass]="{'bg-success text-white':!last30Seconds && !makeButtonDisabled}" [disabled]="last30Seconds || makeButtonDisabled" (click)="openPopup(10)">JOIN GREEN</button>
+                <button mat-raised-button class="w-100" [ngClass]="{'bg-primary text-white':!last30Seconds && !makeButtonDisabled}" [disabled]="last30Seconds || makeButtonDisabled" (click)="openPopup(11)">JOIN BLUE</button>
+                <button mat-raised-button class="w-100" [ngClass]="{'bg-danger text-white':!last30Seconds && !makeButtonDisabled}" [disabled]="last30Seconds || makeButtonDisabled" (click)="openPopup(12)">JOIN RED</button>
             </div>
-            <div class="d-flex py-3 bg-white justify-content-between">
-                 <button mat-raised-button [ngClass]="{'diagonal-button-blueGreen text-white':!last30Seconds && !makeButtonDisabled}" [disabled]="last30Seconds || makeButtonDisabled" (click)="openPopup(0)">0</button>
-                 <button mat-raised-button [ngClass]="{'bg-success text-white':!last30Seconds && !makeButtonDisabled}" [disabled]="last30Seconds || makeButtonDisabled" (click)="openPopup(1)">1</button>
-                 <button mat-raised-button [ngClass]="{'bg-danger text-white':!last30Seconds && !makeButtonDisabled}" [disabled]="last30Seconds || makeButtonDisabled" (click)="openPopup(2)">2</button>
-                 <button mat-raised-button [ngClass]="{'bg-success text-white':!last30Seconds && !makeButtonDisabled}" [disabled]="last30Seconds || makeButtonDisabled" (click)="openPopup(3)">3</button>
-                 <button mat-raised-button [ngClass]="{'bg-danger text-white':!last30Seconds && !makeButtonDisabled}" [disabled]="last30Seconds || makeButtonDisabled" (click)="openPopup(4)">4</button>
+            <div class="d-flex py-3 bg-white justify-content-between gap-1">
+                 <button mat-raised-button class="w-100" [ngClass]="{'diagonal-button-blueGreen text-white':!last30Seconds && !makeButtonDisabled}" [disabled]="last30Seconds || makeButtonDisabled" (click)="openPopup(0)">0</button>
+                 <button mat-raised-button class="w-100" [ngClass]="{'bg-success text-white':!last30Seconds && !makeButtonDisabled}" [disabled]="last30Seconds || makeButtonDisabled" (click)="openPopup(1)">1</button>
+                 <button mat-raised-button class="w-100" [ngClass]="{'bg-danger text-white':!last30Seconds && !makeButtonDisabled}" [disabled]="last30Seconds || makeButtonDisabled" (click)="openPopup(2)">2</button>
+                 <button mat-raised-button class="w-100" [ngClass]="{'bg-success text-white':!last30Seconds && !makeButtonDisabled}" [disabled]="last30Seconds || makeButtonDisabled" (click)="openPopup(3)">3</button>
+                 <button mat-raised-button class="w-100" [ngClass]="{'bg-danger text-white':!last30Seconds && !makeButtonDisabled}" [disabled]="last30Seconds || makeButtonDisabled" (click)="openPopup(4)">4</button>
             </div>
-            <div class="d-flex py-3 bg-white justify-content-between">
-
-                <button mat-raised-button [ngClass]="{'diagonal-button-blueRed text-white':!last30Seconds && !makeButtonDisabled}" [disabled]="last30Seconds || makeButtonDisabled" (click)="openPopup(5)">5</button>
-                <button mat-raised-button [ngClass]="{'bg-danger text-white':!last30Seconds && !makeButtonDisabled}" [disabled]="last30Seconds || makeButtonDisabled"(click)="openPopup(6)">6</button>
-                <button mat-raised-button [ngClass]="{'bg-success text-white':!last30Seconds && !makeButtonDisabled}" [disabled]="last30Seconds || makeButtonDisabled"(click)="openPopup(7)">7</button>
-                <button mat-raised-button [ngClass]="{'bg-danger text-white':!last30Seconds && !makeButtonDisabled}" [disabled]="last30Seconds || makeButtonDisabled"(click)="openPopup(8)">8</button>
-                <button mat-raised-button [ngClass]="{'bg-success text-white':!last30Seconds && !makeButtonDisabled}" [disabled]="last30Seconds || makeButtonDisabled"(click)="openPopup(9)">9</button>
+            <div class="d-flex py-3 bg-white justify-content-between gap-1">
+                <button mat-raised-button class="w-100" [ngClass]="{'diagonal-button-blueRed text-white':!last30Seconds && !makeButtonDisabled}" [disabled]="last30Seconds || makeButtonDisabled" (click)="openPopup(5)">5</button>
+                <button mat-raised-button class="w-100" [ngClass]="{'bg-danger text-white':!last30Seconds && !makeButtonDisabled}" [disabled]="last30Seconds || makeButtonDisabled"(click)="openPopup(6)">6</button>
+                <button mat-raised-button class="w-100" [ngClass]="{'bg-success text-white':!last30Seconds && !makeButtonDisabled}" [disabled]="last30Seconds || makeButtonDisabled"(click)="openPopup(7)">7</button>
+                <button mat-raised-button class="w-100" [ngClass]="{'bg-danger text-white':!last30Seconds && !makeButtonDisabled}" [disabled]="last30Seconds || makeButtonDisabled"(click)="openPopup(8)">8</button>
+                <button mat-raised-button class="w-100" [ngClass]="{'bg-success text-white':!last30Seconds && !makeButtonDisabled}" [disabled]="last30Seconds || makeButtonDisabled"(click)="openPopup(9)">9</button>
            </div>
         </div>
         <!-- Button End -->
         <!-- Periods Table Start -->
-        <div class="row bg-white py-3">
-            <div class="d-flex justify-content-center align-items-center gap-2 fs-5 fw-bold">
+        <div class="row bg-white py-3 mb-5">
+            <div class="d-flex justify-content-center align-items-center gap-2 fs-5 fw-bold my-2">
                 <mat-icon>emoji_events</mat-icon>
                 <span>Parity Record</span>
             </div>
@@ -91,8 +90,13 @@
                     <td mat-cell *matCellDef="let row"> {{row.priceGiven}} </td>
                   </ng-container>
               
-                  <!-- Name Column -->
                   <ng-container matColumnDef="colorWin">
+                    <th mat-header-cell *matHeaderCellDef>Color win</th>
+                    <td mat-cell *matCellDef="let row"> {{row.colorWin}} </td>
+                  </ng-container>
+              
+                  <!-- Name Column -->
+                  <ng-container matColumnDef="color">
                     <th mat-header-cell *matHeaderCellDef> Color win </th>
                     <td mat-cell *matCellDef="let row"> 
                         <div *ngIf="row.colorWin === '0'">
@@ -112,8 +116,9 @@
                   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
                   <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
                 </table>
-              
-                <mat-paginator [pageSizeOptions]="[ 5, 10, 25, 100]" aria-label="Select page of users"></mat-paginator>
+                <div class="d-flex justify-content-start">
+                    <mat-paginator [pageSizeOptions]="[ 5, 10, 25, 100]"></mat-paginator>
+                </div>
               </div>
         </div>
         <!-- Periods Table End -->

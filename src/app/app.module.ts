@@ -52,6 +52,7 @@ import { UserComponent } from './admin/user/user.component';
 import { AdminDialogComponent } from './admin/shared/admin-dialog/admin-dialog.component';
 import { AdminParticipantListComponent } from './admin/admin-participant-list/admin-participant-list.component';
 import { RequestApprovalComponent } from './admin/wallet/request-approval/request-approval.component';
+import { QrCodeComponent } from './components/qr-code/qr-code.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -81,6 +82,7 @@ import { RequestApprovalComponent } from './admin/wallet/request-approval/reques
     AdminDialogComponent,
     AdminParticipantListComponent,
     RequestApprovalComponent,
+    QrCodeComponent,
   ],
   imports: [
     BrowserModule,

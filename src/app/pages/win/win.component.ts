@@ -8,7 +8,6 @@ import { CountdownService } from 'src/app/services/forntend-services/countdown.s
 import { GameIdService } from 'src/app/services/forntend-services/gameId.service';
 import { gameService } from 'src/app/services/game.service';
 import { walletService } from 'src/app/services/wallet.service';
-
 export interface UserData {
   game: string;
   username: string;
@@ -46,8 +45,12 @@ export class WinComponent implements OnInit{
      })
      const data={email:this.email}
      WalletService.getBalance(data).subscribe((res:any)=>{
-      this.balance = parseInt(res.data.balance) ;
+      this.balance = parseInt(res.data.balance) ;      
      })
+    //  const socket = io('http://localhost:3000');
+    // socket.on("hello",(arg)=>{
+    //  console.log(arg);
+    // })   
   }
 
   ngOnInit(): void {
@@ -71,6 +74,7 @@ export class WinComponent implements OnInit{
         this.oldGameId =this.gameId;  
       }
     });
+    
   }
 openPopup(id: number) {
   const dialogRef = this.dialog.open(TakeAmmountComponent, {

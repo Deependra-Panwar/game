@@ -45,8 +45,14 @@
   //   pointer-events: all; /* This line prevents interaction with underlying elements */
   // }
   
+  .mat-paginator-page-size {
+    display: flex;
+    flex-direction: row;
+  }
   
-  
+  .mat-form-field {
+    margin-right: 8px; /* Adjust as needed for spacing between options */
+  }
   
   
   

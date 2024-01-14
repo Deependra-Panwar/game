@@ -1,0 +1,24 @@
+mat-card {
+    max-width: 400px;
+    margin: 0 auto; /* Center the card horizontally */
+    margin-top: 20px; /* Add some top margin for spacing */
+    border-radius: 8px; /* Add border-radius for rounded corners */
+    overflow: hidden; /* Hide any overflowing content */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add a subtle shadow for depth */
+  }
+  
+  mat-card-title {
+    background-color: #2196F3; /* Change the background color of the title */
+    color: white; /* Set the text color of the title to white */
+    padding: 10px; /* Add some padding to the title */
+  }
+  
+  mat-card-content {
+    padding: 20px; /* Add padding to the content area */
+  }
+  
+  .button-container {
+    margin-top: 20px; /* Add some top margin for spacing between form and buttons */
+    text-align: right; /* Align buttons to the right */
+  }
+  

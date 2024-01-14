@@ -1,13 +1,60 @@
-<div class="deposit-container">
-    <h2>Deposit Funds</h2>
-    <form [formGroup]="depositForm" (ngSubmit)="submit()">
-      <mat-form-field appearance="fill">
-        <mat-label>Amount to Deposit</mat-label>
-        <input matInput formControlName="amount" type="number">
-        <mat-error *ngIf="depositForm.get('amount').invalid && depositForm.get('amount').touched">
-          Please enter a valid amount
-        </mat-error>
-      </mat-form-field>
-      <button mat-raised-button color="primary" type="submit" [disabled]="depositForm.invalid">Deposit</button>
-    </form>
+<!-- <div class="container">
+  <mat-card>
+    <mat-card-title>Payment Details</mat-card-title>
+    <mat-card-content>
+      <div class="w-100">
+ 
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div> -->
+
+<div class="container-fluid vh-100 bg-light">
+  <div class="row">
+    <div class="d-flex justify-content-center my-5">
+      <mat-card class="" style="width: 400px;">
+        <mat-card-title class="bg-success">Payment Details</mat-card-title>
+        <mat-card-content>
+          <div class="">
+            <div class="w-100">
+              <form [formGroup]="depositForm">
+                <mat-form-field class="w-100 m-1" appearance="fill">
+                  <mat-label class="bold">Email Address</mat-label>
+                  <input matInput placeholder="Email" formControlName="email" value="panward81@gmail.com" [readonly]="true">
+                  <mat-error *ngIf="depositForm.get('email').hasError('required')">Enter Email</mat-error>
+                </mat-form-field>
+
+                <div class="button-container">
+                  <button class="W-100 mb-3" mat-raised-button color="primary" (click)="openDialog()">Pay Now</button>
+                </div>
+
+                <mat-form-field class="w-100 mt-1" appearance="fill" *ngIf="paynowenable">
+                  <mat-label class="bold">Amount</mat-label>
+                  <input matInput placeholder="Amount" formControlName="amount">
+                  <mat-error *ngIf="depositForm.get('amount').hasError('required')">Enter Amount</mat-error>
+                </mat-form-field>
+
+                <mat-form-field class="w-100 m-1" appearance="fill" *ngIf="paynowenable">
+                  <input matInput placeholder="Transaction ID" formControlName="transactionId">
+                  <mat-error *ngIf="depositForm.get('transactionId').hasError('required')">Enter Transaction ID</mat-error>
+                </mat-form-field>
+
+                <mat-form-field class="w-100 m-1" appearance="fill" *ngIf="paynowenable">
+                  <input matInput placeholder="UTR Number" formControlName="utrNumber">
+                  <mat-error *ngIf="depositForm.get('utrNumber').hasError('required')">Enter UTR NUmber</mat-error>
+                </mat-form-field>
+                <div class="mt-4" *ngIf="paynowenable">
+                  <p class="text-danger">Make sure all Details are correct if not then amount not refect in your account</p>
+                </div>
+                <div class="button-container" *ngIf="paynowenable">
+                  <button mat-raised-button class="W-100 mb-3" color="primary" [disabled]="depositForm.invalid" (click)="submit()">confirm Payment</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </div>
   </div>
+
+</div>

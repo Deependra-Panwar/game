@@ -56,14 +56,14 @@
                                 <mat-form-field class="w-100 mb-3"  appearance="outline">
                                     <mat-label>Password</mat-label>
                                     <mat-icon matPrefix>vpn_key</mat-icon>
-                                    <input matInput placeholder="Enter your password" formControlName="password">
+                                    <input matInput placeholder="Enter your password" formControlName="password" type="password">
                                     <mat-error *ngIf="registrationForm.get('password').hasError('required')">Enter password</mat-error>
                                     <mat-error *ngIf="registrationForm.get('password').hasError('minlength')">Password must be at least 8 characters long.</mat-error>
                                 </mat-form-field>
                                 <mat-form-field class="w-100 mb-3"  appearance="outline">
                                     <mat-label class="bold">Recommendation Code</mat-label>
                                     <mat-icon matPrefix>card_giftcard</mat-icon>
-                                    <input matInput placeholder="Enter Recommendation Code" formArrayName="recommendationCode">
+                                    <input matInput placeholder="Enter Recommendation Code" formControlName="recommendationCode">
                                 </mat-form-field>
                                 <div class="mb-1">
                                     <mat-checkbox class="example-margin" formControlName="privacyPolicy">I agree <span class="fw-bold primary">privacy policy</span></mat-checkbox>

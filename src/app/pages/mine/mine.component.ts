@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-mine',
@@ -7,4 +8,9 @@ import { Component } from '@angular/core';
 })
 export class MineComponent {
   panelOpenState= false;
+  constructor( private router:Router,) {}
+  logout() {
+    localStorage.removeItem("user_id");
+    this.router.navigate(['login']);
+  }
 }

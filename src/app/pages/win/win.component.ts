@@ -8,7 +8,6 @@ import { CountdownService } from 'src/app/services/forntend-services/countdown.s
 import { GameIdService } from 'src/app/services/forntend-services/gameId.service';
 import { gameService } from 'src/app/services/game.service';
 import { walletService } from 'src/app/services/wallet.service';
-
 export interface UserData {
   game: string;
   username: string;
@@ -21,7 +20,7 @@ export interface UserData {
   styleUrls: ['./win.component.scss'],
 })
 export class WinComponent implements OnInit{
-  displayedColumns: string[] = ['gameId','priceGiven', 'colorWin'];
+  displayedColumns: string[] = ['gameId','priceGiven', 'colorWin', 'color'];
   dataSource!: MatTableDataSource<UserData>;
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
@@ -33,18 +32,25 @@ export class WinComponent implements OnInit{
   oldGameId:String;
   getWinner:number = 1;
   balance:any;
+  email:any;
 
   constructor(private countdownService: CountdownService , private gameIdService: GameIdService, private GameService: gameService, private WalletService :walletService, private dialog: MatDialog) { 
+    this.email =localStorage.getItem("user_id");
     this.GameService.getGameResult().subscribe((res:any)=>{
+      console.log('data game',res.data)
       this.posts= res.data
       this.dataSource = new MatTableDataSource(this.posts);
       this.dataSource.paginator = this.paginator;
       this.dataSource.sort = this.sort;
      })
-     const data={email:'panward81@gmail.com'}
+     const data={email:this.email}
      WalletService.getBalance(data).subscribe((res:any)=>{
-      this.balance = parseInt(res.data.balance) ;
+      this.balance = parseInt(res.data.balance) ;      
      })
+    //  const socket = io('http://localhost:3000');
+    // socket.on("hello",(arg)=>{
+    //  console.log(arg);
+    // })   
   }
 
   ngOnInit(): void {
@@ -68,6 +74,7 @@ export class WinComponent implements OnInit{
         this.oldGameId =this.gameId;  
       }
     });
+    
   }
 openPopup(id: number) {
   const dialogRef = this.dialog.open(TakeAmmountComponent, {
@@ -85,19 +92,19 @@ openPopup(id: number) {
     if(result !== null && result.ammount< this.balance){
       const participantuser ={
         gameId:this.gameId,
-        username:'panward81@gmail.com',
+        username:this.email,
         amountput: result.ammount,
         selection: result.selectNumber
       }
       this.makeButtonDisabled= true;
       const data ={
         amount:result.ammount,
-        email:'panward81@gmail.com'
+        email:this.email
       }
       this.WalletService.deduction(data).subscribe((res:any)=>{
         if(res.status === 200){
           this.GameService.participantuserService(participantuser).subscribe((res)=>{
-            console.log('res',res)
+
           })
         }
       })

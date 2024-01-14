@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
-
+import { io } from "socket.io-client";
 @Injectable()
 export class GameIdService {
   private currentYear: number;
@@ -14,6 +14,11 @@ export class GameIdService {
     this.currentYear = currentDate.getFullYear();
     this.currentMonth = currentDate.getMonth() + 1; // Months are zero-based
     this.currentNumber = 1;
+    const socket = io('http://localhost:3000');
+    socket.on('intervalTime', (intervalTime: number,gameId:any)=>{
+      console.log('intervalTime',intervalTime,gameId);
+      this.currentNumber = gameId;
+     });
     this.generateGameId();
   }
 
@@ -30,10 +35,10 @@ export class GameIdService {
       this.currentNumber = 1;
     }
 
-    const formattedNumber = this.currentNumber.toString().padStart(5, '0');
-    const gameId = `${year}${month}${formattedNumber}`;
+    // const formattedNumber = this.currentNumber.toString().padStart(5, '0');
+    // const gameId = `${year}${month}${formattedNumber}`;
 
-    this.gameIdSubject.next(gameId);
+    this.gameIdSubject.next(this.currentNumber.toString());
   }
 
   getGameIdObservable(): Observable<string> {

@@ -1,7 +1,7 @@
-  <mat-dialog-content class="popup-content">
-    <div class="d-flex gap-3">
-        <div>
-            <mat-form-field class="amount-input w-100">
+  <mat-dialog-content>
+    <div class="d-flex justify-content-between w-100">
+        <div class="w-50">
+            <mat-form-field class="amount-input w-75">
                 <mat-label>Amount</mat-label>
                 <input matInput type="number" [(ngModel)]="enteredAmount" [readonly]="true">
             </mat-form-field>
@@ -16,16 +16,20 @@
         </div>
     </div>
     <div class="d-flex justify-content-between gap-3">
-        <button mat-raised-button (click)="selectAmount(130)">130</button>
-        <button mat-raised-button (click)="selectAmount(50)">50</button>
-        <button mat-raised-button (click)="selectAmount(100)">100</button>
-        <button mat-raised-button (click)="selectAmount(200)">200</button>
+        <button mat-raised-button (click)="selectAmount(50)" class="w-100">50</button>
+        <button mat-raised-button (click)="selectAmount(100)" class="w-100">100</button>
+        <button mat-raised-button (click)="selectAmount(200)" class="w-100">200</button>
+    </div>
+    <div class="d-flex justify-content-between gap-3 mt-2">
+        <button mat-raised-button (click)="selectAmount(50)" class="w-100">300</button>
+        <button mat-raised-button (click)="selectAmount(100)" class="w-100">500</button>
+        <button mat-raised-button (click)="selectAmount(200)" class="w-100">1000</button>
     </div>
     <div class="mt-3">
         <span *ngIf="displayMsg===true" class="text-danger">Enter Amount Should Be less than {{balance}}</span>
     </div>
-    <div class="d-flex justify-content-end mt-5 gap-2">
-        <button mat-raised-button (click)="closePopup()">Cancel</button>
+    <div class="d-flex justify-content-center  mt-5 gap-2">
         <button mat-raised-button class="bg-success text-white" (click)="submitAmount()" [disabled]="isSubmitDisabled()">Submit</button>
+        <button mat-raised-button (click)="closePopup()">Cancel</button>
     </div>
   </mat-dialog-content> 

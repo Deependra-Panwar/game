@@ -3,7 +3,7 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, timer, Observable, Subscription } from 'rxjs';
 import { GameIdService } from './gameId.service';
-
+import { io } from "socket.io-client";
 @Injectable({
   providedIn: 'root',
 })
@@ -13,6 +13,17 @@ export class CountdownService {
   private countdownInterval: Subscription;
 
   constructor(private gameIdService: GameIdService) {
+    const socket = io('http://localhost:3000');
+    socket.on("hello",(arg)=>{
+     console.log(arg);
+    });
+    socket.on('intervalTime', (intervalTime: number,gameId:any)=>{
+      console.log('intervalTime',intervalTime,gameId);
+      this.timer= intervalTime;
+     });
+     socket.on('islast30second', (islast30second: number)=>{
+      console.log('islast30second',islast30second);
+     })
     this.startCountdown(60); // Start a 2-minute countdown when the service is created
   }
 
